@@ -28,6 +28,19 @@ guestshell run python
 
 Note:  In IOS XE 17.3.4, that command will error.  Use "guestshell run python3".
 
+The script will be copied to flash:guest-share/download_script.py.  You can edit the script in the guestshell with vi if needed and run the script.
+
+```
+Switch# guestshell
+[guestshell@guestshell ~]$ ls -l /flash/guest-share/
+total 8
+-rw-r--r--. 1 guestshell guestshell 1563 Jan  1 00:01 downloaded_script.py
+
+[guestshell@guestshell ~]$ vi /flash/guest-share/downloaded_script.py
+
+[guestshell@guestshell ~]$ python /flash/guest-share/downloaded_script.py
+```
+
 I'm using TFTP.  
 
 ```
