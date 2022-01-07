@@ -9,6 +9,7 @@ It takes about 5 minutes after powering up the switch before the guestshell is s
 
 If you need help figuring out how to change the python in the script, fire up Python in a guestshell.  When testing the script, the switch has to have no startup-config and has to be power cycled.  ZTP will not start after using reload.
 
+```
 conf t
   iox
   app-hosting appid guestshell
@@ -23,12 +24,13 @@ guestshell enable
 ! Wait for the guestshell to start
 !
 guestshell run python
+```
 
 Note:  In IOS XE 17.3.4, that command will error.  Use "guestshell run python3".
 
 I'm using TFTP.  
 
-
+```
 vlan 100
   name 9300.ztp
 int vlan 100
@@ -42,6 +44,6 @@ ip dhcp pool 9300_ZTP_Pool
   default-router 198.51.100.1
   option 150 ip 192.0.2.100
   option 67 ascii 9300_ztp.py
-
+```
 
 
