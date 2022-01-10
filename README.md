@@ -3,7 +3,18 @@ Cisco Zero Touch Provisioning
 
 This is my zero touch provisioning script.  There are many like it.  But this one is mine.
 
-Short and simple, get'er done script to upgrade the IOS.  There is no logic.  Normally, the script should have some check to make sure it just doesn't keep running over and over again every time the switch boots.  Currently, the Cisco Catalyst 9300s are shipping with IOS XE 16.12.x installed ( as of December 2021 ).  That version uses Python 2.7.  The script updates IOS XE to 17.3.x, which uses Python 3.6.  The script will error on the first print statement if the upgrade was successfull.
+Short and simple, get'er done script to upgrade the IOS.  There is no logic.  Normally, the script should have some check to make sure it doesn't try to upgrade the IOS a second time.  If the install command is run a second time, the installation will stop with the reason, "Same Image File-No Change".  Currently, the Cisco Catalyst 9300s are shipping with IOS XE 16.12.x installed ( as of December 2021 ).  That version uses Python 2.7.  The script updates IOS XE to 17.3.x, which uses Python 3.6.  The script will error on the first print statement if the upgrade was successfull.
+
+The Python 3.6 script just has the print statements changed.  If you want to use one script that works with both Python 2.7 and Python 3.6, look into the feature "from __future__ import print_function".
+
+To prevent the script from running a second time after a successful upgrade, I changed the prompt to "y" to save the configuration during the installation.  If you have a separate ZTP script or you are using AutoInstall or PNP to configure the switch at a later time, change that prompt back to "n".  You'll probably want to remove "file prompt quiet" and the "UPGRADE" EEM applet when you apply a configuration to the switch.
+
+```
+System configuration has been modified.
+Press Yes(y) to save the configuration and proceed.
+Press No(n) for proceeding without saving the configuration.
+Press Quit(q) to exit, you may save configuration and re-enter the command. [y/n/q]
+```
 
 It takes about 5 minutes after powering up the switch before the guestshell is started and the script is run.  Total time for the upgrade is about 30 minutes.  Much of this time is because there is a microcode update when upgrading from 16.12.x to 17.3.4.
 
