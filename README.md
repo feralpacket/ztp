@@ -52,6 +52,31 @@ total 8
 [guestshell@guestshell ~]$ python /flash/guest-share/downloaded_script.py
 ```
 
+To get more information about the cli module.
+
+```
+>>> import cli
+>>> help(cli)
+Help on package cli:
+
+NAME
+    cli
+
+DESCRIPTION
+    Copyright (c) 2020 by Cisco Systems, Inc.
+    All rights reserved.
+    
+    Run Cisco IOS CLI commands and receive the output.
+    
+    This module contains utility functions that run Cisco IOS CLI commands and p
+rovide
+    the output.
+
+ . . .
+ . . .
+```
+
+
 I'm using TFTP.  
 
 ```
