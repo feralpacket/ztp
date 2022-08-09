@@ -39,7 +39,7 @@ guestshell run python
 
 Note:  In IOS XE 17.3.4, that command will error.  Use "guestshell run python3".
 
-Note:  Had a shipment of 9300 switches with 16.12.4 that had to be "kick started" before ZTP would respond.  After configuring iox, running "guestshell enable", and then power cyclying the switch, ZTP work as expected. 
+Note:  Had a shipment of 9300 switches with 16.12.4 that had to be "kick started" before ZTP would respond.  After configuring iox, running "guestshell enable", and then power cyclying the switch, ZTP worked as expected. 
 
 The script will be copied to flash:guest-share/download_script.py.  You can edit the script in the guestshell with vi if needed and run the script.
 
