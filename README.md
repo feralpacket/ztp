@@ -16,7 +16,9 @@ Press No(n) for proceeding without saving the configuration.
 Press Quit(q) to exit, you may save configuration and re-enter the command. [y/n/q]
 ```
 
-Note:  The EEM script is unnecessary if you add "prompt-level none" to the install command.  It appears the command is responding with "y" to any questions as the configuration is saved.  This is a potential problem if you want to run ZTP a second time.  Why would you want to do this?  Well, how do you verify the software upgrade was successful?  One way is to connect a console cable to every switch and run "show version" to verify the IOS version.  Another way is to modify your ZTP script to check the version.  If the IOS version is the target version, have to script do some action to notify something an upgrade is not need ( the upgrade was successful ).
+Note:  The EEM script is unnecessary if you add "prompt-level none" to the install command.  It appears the command is responding with "y" to any questions as the configuration is saved.  This is a potential problem if you want to run ZTP a second time.  Why would you want to do this?  Well, how do you verify the software upgrade was successful?  One way is to connect a console cable to every switch and run "show version" to verify the IOS version.  Another way is to modify your ZTP script to check the version.  If the IOS version is the target version, have to script do some action to notify something an upgrade is not need ( the upgrade was successful ).  
+
+If you haven't figured this out yet, the result of successfully automating stuff is spending a lot of time looking at the output of the results to verify the automation was successful.  Of course, the verification can also be automated.  Where does that hampster wheel stop?
 
 ```
 install add file flash:cat9k_iosxe.17.03.05.SPA.bin activate commit prompt-level none
