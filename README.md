@@ -16,6 +16,12 @@ Press No(n) for proceeding without saving the configuration.
 Press Quit(q) to exit, you may save configuration and re-enter the command. [y/n/q]
 ```
 
+Note:  The EEM script is unnecessary if you add "prompt-level none" to the install command.
+
+```
+install add file flash:cat9k_iosxe.17.03.05.SPA.bin activate commit prompt-level none"
+```
+
 It takes about 5 minutes after powering up the switch before the guestshell is started and the script is run.  Total time for the upgrade is about 30 minutes.  Much of this time is because there is a microcode update when upgrading from 16.12.x to 17.3.4.
 
 If you need help figuring out how to change the python in the script, fire up Python in a guestshell.  When testing the script, the switch has to have no startup-config and has to be power cycled.  ZTP will not start after using reload.
