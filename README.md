@@ -103,6 +103,7 @@ ip dhcp pool 9300_ZTP_Pool
   default-router 198.51.100.1
   option 150 ip 192.0.2.100
   option 67 ascii 9300_ztp.py
+  lease 0 4
 ```
 
 
