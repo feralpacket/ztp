@@ -98,7 +98,7 @@ int vlan 100
   no shut
 !
 ip dhcp exclude-address 198.51.100.1 198.51.100.10
-ip dhcp pool 9300_ZTP_Pool
+ip dhcp pool 9300_ZTP_POOL
   network 198.51.100.0 255.255.255.0
   default-router 198.51.100.1
   option 150 ip 192.0.2.100
