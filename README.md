@@ -121,7 +121,7 @@ sh logging
   ! Are there any weird log messages that usually are not present with new, out of the box switches?
 
 dir
-  ! Are there and crash or dump files?
+  ! Are there any crash or dump files?
 
 sh swi
   ! Are all of the switches in the stack present?
