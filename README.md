@@ -86,7 +86,6 @@ rovide
  . . .
 ```
 
-
 I'm using TFTP.  
 
 ```
@@ -106,4 +105,41 @@ ip dhcp pool 9300_ZTP_POOL
   lease 0 4
 ```
 
+Noticed recently, September 2023, Autoinstall / ZTP will send DHCPv4 and DCHPv6 requests out Vlan1.  These were on 9300s shipped with 17.5.1b.  Previously, ZTP only worked with the management interface.  This is important for switches that are normally only connected via fiber.  This means I can start to consider having the hardware team replace switches without having to upgrade the IOS and configure them separately.  Looked through the IOS XE release notes to see when this became a thing.  Couldn't find anything.  Looked through the 9300 and IOS XE documentation.  Again, nothing.  The only thing I did notice was any mention of ZTP only working on the management interface was removed.
+
+Even if I start having 9300s configured and updated on site, still have to do some basic checks to verify the switch is working.
+
+```
+sh inv
+  ! Are the NIMs present?
+  ! Are the SFPs present?
+
+sh env all
+  ! Are the power supplies and fans present and functioning?
+
+sh logging
+  ! Are there any weird log messages that usually are not present with new, out of the box switches?
+
+dir
+  ! Are there and crash or dump files?
+
+sh swi
+  ! Are all of the switches in the stack present?
+
+sh swi port-stack detail
+  ! Are there any errors?
+  ! Did the hardware team insert the stack cables properly?
+  ! Are the stack cables getting crushed after the cabinet was slammed shut?
+  ! Is Cisco having quality control issues, again?
+
+sh logging onboard switch active uptime detail
+  ! This command tends to change slightly with switch model and IOS XE version.
+    ! sh logging onboard uptime detail
+    ! sh logging onboard RP 0 uptime detail
+    ! sh logging onboard switch active RP 0 uptime detail
+    ! sh logging onboard switch 1 uptime detail
+  ! How long has the switch been sitting in inventory?
+  ! Did we happen to get an RMA or grey market switch?
+
+```
 
