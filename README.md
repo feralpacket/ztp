@@ -106,8 +106,15 @@ ip dhcp pool 9300_ZTP_POOL
   option 67 ascii 9300_ztp.py
   lease 0 4
 ```
+### SCP
+SCP is VRF aware.  If you use SCP instead of TFTP, you'll have to configured the SSH source interface to use the management interface and VRF.
+```
+ip ssh source-interface gi0/0
+```
 
 Noticed recently, September 2023, Autoinstall / ZTP will send DHCPv4 and DCHPv6 requests out Vlan1.  These were on 9300s shipped with 17.5.1b.  Previously, ZTP only worked with the management interface.  This is important for switches that are normally only connected via fiber.  This means I can start to consider having the hardware team replace switches without having to upgrade the IOS and configure them separately.  Looked through the IOS XE release notes to see when this became a thing.  Couldn't find anything.  Looked through the 9300 and IOS XE documentation.  Again, nothing.  The only thing I did notice was any mention of ZTP only working on the management interface was removed.
+
+### Verification
 
 Even if I start having 9300s configured and updated on site, still have to do some basic checks to verify the switch is working.
 
