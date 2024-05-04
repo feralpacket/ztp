@@ -1,5 +1,5 @@
 # ztp
-Cisco Zero Touch Provisioning
+## Cisco Zero Touch Provisioning
 
 This is my zero touch provisioning script.  There are many like it.  But this one is mine.
 
@@ -18,6 +18,8 @@ Press Quit(q) to exit, you may save configuration and re-enter the command. [y/n
 
 Note:  The EEM script is unnecessary if you add "prompt-level none" to the install command.  It appears the command is responding with "y" to any questions as the configuration is saved.  This is a potential problem if you want to run ZTP a second time.  Why would you want to do this?  Well, how do you verify the software upgrade was successful?  One way is to connect a console cable to every switch and run "show version" to verify the IOS version.  Another way is to modify your ZTP script to check the version.  If the IOS version is the target version, have to script do some action to notify something an upgrade is not need ( the upgrade was successful ).  It also depends on how you are going to configure the switch.  Are you going to console in and copy / paste a configuration?  Are you going to use something automated to push a configuration?  And at some point you need to verify the hardware, power supply(ies), fans, and network modules.  Are there any weird, out of the ordinary log messages?
 
+## EEM
+
 Note:  The DNA Advantage license is needed for the EEM feature.  Also noticed the "prompt-level none" command doesn't always work.  Your mileage may vary.
 
 If you haven't figured this out yet, the result of successfully automating stuff is spending a lot of time looking at the output of the results to verify the automation was successful.  Of course, the verification can also be automated.  Where does that hampster wheel stop?
@@ -27,6 +29,8 @@ install add file flash:cat9k_iosxe.17.03.05.SPA.bin activate commit prompt-level
 ```
 
 It takes about 5 minutes after powering up the switch before the guestshell is started and the script is run.  Total time for the upgrade is about 30 minutes.  Much of this time is because there is a microcode update when upgrading from 16.12.x to 17.3.4.
+
+## Testing Your ZTP Script
 
 If you need help figuring out how to change the python in the script, fire up Python in a guestshell.  When testing the script, the switch has to have no startup-config and has to be power cycled.  ZTP will not start after using reload.
 
@@ -87,6 +91,8 @@ rovide
  . . .
  . . .
 ```
+
+## TFTP
 
 I'm using TFTP.  
 
