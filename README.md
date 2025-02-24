@@ -39,6 +39,8 @@ conf t
   iox
   app-hosting appid guestshell
     vnic management guest-interface 0
+    ! This changed at some point to:
+    ! app-vnic management guest-interface 0
     end
 !
 ! Wait for IOX to start
