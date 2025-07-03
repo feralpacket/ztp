@@ -9,6 +9,12 @@ The Python 3.6 script just has the print statements changed.  If you want to use
 
 To prevent the script from running a second time after a successful upgrade, I changed the prompt to "y" to save the configuration during the installation.  If you have a separate ZTP script or you are using AutoInstall or PNP to configure the switch at a later time, change that prompt back to "n".  You'll probably want to remove "file prompt quiet" and the "UPGRADE" EEM applet when you apply a configuration to the switch.
 
+NOTE:  At some point, there was a change so the configuration has to be saved before running the install command.  Otherwise, you'll see the following error.  Saving the configuration will prevent ZTP from running after the next reload.
+
+```
+*Jul  4 12:34:56.789: %INSTALL-3-OPERATION_ERROR_MESSAGE: R0/0: install_mgr: Failed to install add_activate_commit package bootflash:/cat9k_iosxe.17.12.05.SPA.bin, Error: System configuration has been modified. Please save configuration and resubmit command.
+```
+
 ```
 System configuration has been modified.
 Press Yes(y) to save the configuration and proceed.
