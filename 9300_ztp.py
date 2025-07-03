@@ -35,7 +35,7 @@ time.sleep(10)
 
 print("\n\n   *** Write Memory ***   \n\n")
 cli_command = "write mem"
-cli.excutep(cli_command)
+cli.executep(cli_command)
 time.sleep(10)
 
 print("\n\n   *** Run EEM to install the image ***   \n\n")
